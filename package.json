@@ -1,26 +1,23 @@
 {
-  "name": "lampsequencer",
-  "version": "1.0.0",
-  "description": "GUI for lamp sequencer in webapp",
-  "engines": {
-    "node": "6.10.2"
+  "name": "socket-chat-example",
+  "version": "0.0.1",
+  "description": "my first socket.io app",
+  "dependencies": {
+    "express": "^4.15.2",
+    "socket.io": "^1.7.3"
   },
-  "main": "index.js",
   "scripts": {
     "start": "node index.js"
   },
-  "author": "IED - One Year Course Digital Arts & Experience Design",
-  "license": "MIT",
-  "dependencies": {
-    "express": "^4.15.3",
-    "socket.io": "^2.0.3"
-  },
+  "main": "index.js",
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/Kike-Ramirez/lampSequencer.git"
+    "url": "git+https://github.com/socketio/chat-example.git"
   },
+  "author": "",
+  "license": "ISC",
   "bugs": {
-    "url": "https://github.com/Kike-Ramirez/lampSequencer/issues"
+    "url": "https://github.com/socketio/chat-example/issues"
   },
-  "homepage": "https://github.com/Kike-Ramirez/lampSequencer#readme"
+  "homepage": "https://github.com/socketio/chat-example#readme"
 }
