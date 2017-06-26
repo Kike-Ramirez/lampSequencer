@@ -34,7 +34,7 @@
         this.send = function() { 
           var socket = io();
           var chainEmit = this.oscilator + "-" + String(this.speed) + "-" + this.rotation;
-          socket.emit('chat message', chainEmit);
+          socket.emit('lampSequencer', chainEmit);
  
         };
         
@@ -58,7 +58,7 @@
         //   $('#m').val('');
         //   return false;
         // });
-        socket.on('chat message', function(msg){
+        socket.on('lampSequencer', function(msg){
           $('#messages').append($('<li>').text(msg));
           window.scrollTo(0, document.body.scrollHeight);
         });
