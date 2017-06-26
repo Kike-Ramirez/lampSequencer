@@ -1,5 +1,5 @@
 {
-  "name": "socket-chat-example",
+  "name": "lampsequencer",
   "version": "0.0.1",
   "description": "my first socket.io app",
   "dependencies": {
@@ -19,5 +19,6 @@
   "bugs": {
     "url": "https://github.com/socketio/chat-example/issues"
   },
-  "homepage": "https://github.com/socketio/chat-example#readme"
+  "homepage": "https://github.com/socketio/chat-example#readme",
+  "devDependencies": {}
 }
