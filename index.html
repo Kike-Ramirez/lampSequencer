@@ -16,47 +16,48 @@
   </head>
   <body>
     <ul id="messages"></ul>
-    <form action="">
+<!--     <form action="">
       <input id="m" autocomplete="off" /><button>Send</button>
-    </form>
+    </form> -->
     <script src="https://cdn.socket.io/socket.io-1.2.0.js"></script>
     <script src="https://code.jquery.com/jquery-1.11.1.js"></script>
     <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/dat-gui/0.6.5/dat.gui.js"></script>
 
     <script>
 
-      var obj = {
+      var datMenu = function() {
 
-        sthis.speed: 5.0,
-
-        this.rotation: 'CW',
-
-        this.send = function() { ... };
-
-
+        this.oscilator = 'sin';
+        this.speed = 5.0;
+        this.rotation = 'CW';
+        
+        this.send = function() { 
+          var socket = io();
+          var chainEmit = this.oscilator + "-" + String(this.speed) + "-" + this.rotation;
+          socket.emit('chat message', chainEmit);
+ 
+        };
+        
+        // Define render logic ...
+      
       };
 
-      var gui = new dat.GUI ( {autoplace: false, width: 800, height: 800});
-
-      gui.remember(obj);
-
-      gui.add (obj, 'speed');
-
-      gui.add (obj, 'rotation');
-
-      gui.add (obj, 'rotation', ['CW', 'CCW'] );
-
-      gui.add(obj, 'speed', { Stopped: 0, Slow: 0.1, Fast: 5 } );
-
-      gui.add (obj, 'send');
+      window.onload = function() {
+        var text = new datMenu();
+        var gui = new dat.GUI();
+        gui.add(text, 'oscilator',  ['sin', 'tri', 'ramp'] );
+        gui.add(text, 'speed', 0.0, 10.0);
+        gui.add(text, 'rotation',  ['CW', 'CCW'] );
+        gui.add(text, 'send');
+      };
 
       $(function () {
         var socket = io();
-        $('form').submit(function(){
-          socket.emit('chat message', $('#m').val());
-          $('#m').val('');
-          return false;
-        });
+        // $('form').submit(function(){
+        //   socket.emit('chat message', $('#m').val());
+        //   $('#m').val('');
+        //   return false;
+        // });
         socket.on('chat message', function(msg){
           $('#messages').append($('<li>').text(msg));
           window.scrollTo(0, document.body.scrollHeight);
