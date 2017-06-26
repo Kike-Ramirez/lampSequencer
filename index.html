@@ -27,9 +27,12 @@
 
       var obj = {
 
-        speed: 5.0,
+        sthis.speed: 5.0,
 
-        rotation: 'CW',
+        this.rotation: 'CW',
+
+        this.send = function() { ... };
+
 
       };
 
@@ -45,7 +48,7 @@
 
       gui.add(obj, 'speed', { Stopped: 0, Slow: 0.1, Fast: 5 } );
 
-      gui.add (button, 'send');
+      gui.add (obj, 'send');
 
       $(function () {
         var socket = io();
