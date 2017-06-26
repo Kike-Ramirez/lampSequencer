@@ -22,6 +22,29 @@
     <script src="https://cdn.socket.io/socket.io-1.2.0.js"></script>
     <script src="https://code.jquery.com/jquery-1.11.1.js"></script>
     <script>
+
+      var obj = {
+
+        speed: 5.0,
+
+        rotation: 'CW',
+
+      };
+
+      var gui = new dat.GUI ( {autoplace: false, width: 800, height: 800});
+
+      gui.remember(obj);
+
+      gui.add (obj, 'speed');
+
+      gui.add (obj, 'rotation');
+
+      gui.add (obj, 'rotation', ['CW', 'CCW'] );
+
+      gui.add(obj, 'speed', { Stopped: 0, Slow: 0.1, Fast: 5 } );
+
+      gui.add (button, 'send');
+
       $(function () {
         var socket = io();
         $('form').submit(function(){
